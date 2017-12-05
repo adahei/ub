@@ -1,0 +1,100 @@
+{
+  "rules": {
+    ".write": "auth.uid === 'i7UgT7DPZ7OBCo6JekHDcduN9sE2'",
+    ".read": true,
+    "ubSections": {
+      "$id": {
+        "title": {
+          ".validate": "newData.isString()"
+        },
+        "showTitle": {
+          ".validate": "newData.isBoolean()"
+        },
+        "body": {
+          ".validate": "newData.isString()"
+        },
+        "order": {
+          ".validate": "newData.isString()"
+        },
+        "quote": {
+          "source": {
+            ".validate": "newData.isString()"
+          },
+          "body": {
+            ".validate": "newData.isString()"
+          }
+        },
+        "img": {
+          ".validate": "newData.isString()"
+        },
+        "created": {},
+        "updated": {},
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    "ubSpinner": {
+      ".validate": true
+    },
+    "ubHero": {
+      "$id": {
+        ".validate": true
+      }
+    },
+    "posts": {
+      "$id": {
+        "author": {
+          ".validate": "newData.isString()"
+        },
+        "body": {
+          ".validate": "newData.isString()"
+        },
+        "tags": {
+          ".validate": "newData.hasChildren()"
+        },
+        "title": {
+          ".validate": "newData.isString()"
+        },
+        "img": {
+          ".validate": "newData.isString()"
+        },
+        "created": {
+          // ".validate": "newData.val() < now"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    "settings": {
+      ".validate": true
+    },
+    "pages": {
+      "$id": {
+        "name": {
+          ".validate": "newData.isString()"
+        },
+        "fields": {
+          ".validate": true
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    "users": {
+      "$uid": {
+        // ".write": "auth != null && auth.uid == $uid && root.child('users').child(auth.uid).child('role').val() === 'admin' "
+      }
+    },
+    "media": {
+      "$id": {
+        // ".write": "auth != null && auth.uid == $uid && root.child('users').child(auth.uid).child('role').val() === 'admin' "
+      }
+    },
+    "$other": {
+      ".validate": false
+    }
+  }
+}

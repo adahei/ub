@@ -1,0 +1,87 @@
+// COLORS
+//
+
+$color-primary:         #FF6426;
+$color-primary-dark:    #f34120;
+
+$color-gray-light:      #ccc;
+$color-gray-mute:       #9a9a9a;
+
+$color-text-color:      #333333;
+$color-header-color:    #393939;
+
+$body-bg:               #fff;
+$body-color:            $color-text-color;
+$link-color:            $color-primary;
+$link-hover-color:      $color-primary-dark;
+
+
+// SPACING
+//
+
+$spacer:                1rem;
+
+$spacing-sm:            ($spacer * .8);
+$spacing-md:            ($spacer * 1.5);
+$spacing-lg:            ($spacer * 3);
+
+
+// SCREEN SIZES
+//
+
+$screen-sm:             768px;
+$screen-md:             992px;
+$screen-lg:             1200px;
+
+$content-width-sm:      100%;
+$content-width-md:      768px;
+$content-width-lg:      768px;
+
+
+// TYPOGRAPHY
+//
+
+$font-family-base:      "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+$font-size-root:        16px;
+
+$font-size-base:        1rem;
+$font-size-lg:          ($font-size-base * 1.25);
+$font-size-sm:          ($font-size-base * .85);
+$font-size-xs:          ($font-size-base * .75);
+
+$line-height:           1.5;
+$line-height-lg:        (4 / 3);
+$line-height-sm:        $line-height - 0.3;
+
+
+// BUTTONS
+//
+
+$btn-padding-x:         1rem;
+$btn-padding-y:         .375rem;
+
+
+// FORMS
+//
+
+$input-padding-x:       $btn-padding-x;
+$input-padding-y:       $btn-padding-y;
+$input-bg:              #fff;
+$input-border-color:    $color-gray-light;
+$contact-field-margin:  10px;
+
+// VALIDATION
+$error-bg-color:        #f2dede;
+$error-border-color:    #a94442;
+$error-padding:         5px 10px;
+$error-arrow-height:    10px;
+
+
+// Nav
+$nav-height:            50px;
+$nav-height-lg:         65px;
+
+// Sections
+$section-margin-bottom-lg: 70px;
+$section-margin-bottom-sm: 50px;

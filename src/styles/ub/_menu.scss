@@ -1,0 +1,203 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(250,250,250,.9);
+  z-index: 10;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 .8rem;
+    @media (min-width: $screen-sm) {
+      max-width: 90%;
+    }
+  }
+  .logo {
+    width: 200px;
+    margin-bottom: 6px;
+    svg {
+      display: block;
+      width: 160px;
+      height: $nav-height;
+      transition: all .3s ease-in-out;
+
+      // in order to align the U
+      .lt-u {
+        transform: translateY(15px);
+        transition: all .3s ease-in-out;
+      }
+
+      // Hide other letters
+      .txt {
+        transition: all .3s ease-in-out;
+        opacity: 0;
+      }
+    }
+
+    @media (min-width: $screen-sm) {
+      width: 190px;
+      svg {
+        width: 100%;
+        height: ($nav-height-lg - 10);
+        .lt-u {
+          transform: translateY(0);
+        }
+        .txt {
+          fill: #000;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .hamburger {
+    display: block;
+    @media (min-width: $screen-sm) {
+      display: none;
+    }
+  }
+  .navigation {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    background-color: rgba(250,250,250,.9);
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 0 $spacing-sm 6rem $spacing-sm;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $screen-sm) {
+      justify-content: flex-end;
+      flex-direction: row;
+    }
+
+    // Initial hide navbar
+    transition: transform .3s ease-in-out;
+    transform: translateX(-120%);
+    backface-visibility: hidden;
+
+    &.open {
+      transform: translateX(0);
+    }
+
+    @media (min-width: $screen-sm) {
+      top: 0;
+      left: auto;
+      flex: 1;
+      overflow: visible;
+      position: relative;
+      text-align: right;
+      background-color: transparent;
+      transform: translateX(0);
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      @media (min-width: $screen-sm) {
+        flex-direction: row;
+      }
+      &.nav-contact-item {
+        display: none;
+        @media (min-width: $screen-sm) {
+          display: block;
+        }
+      }
+    }
+    .scrollactive-nav {
+
+    }
+    &__item {
+      position: relative;
+      display: block;
+      margin: .3rem;
+      @media (min-width: $screen-sm) {
+        margin: .8rem;
+      }
+      color: $body-color;
+      text-transform: lowercase;
+      text-decoration: none;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -8px;
+        width: 2px;
+        height: 100%;
+        @media (min-width: $screen-sm) {
+          top: auto;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+        }
+        background-color: transparent;
+        transition: all .2s ease-in-out;
+        transform: translateY(4px);
+        opacity: 0;
+      }
+      &.active {
+        &::after {
+          transform: translateY(0);
+          background-color: #000;
+          opacity: 1;
+        }
+      }
+    }
+    .navigation__contact {
+      display: block;
+      border-top: 2px solid #000;
+      margin-top: $spacing-md;
+      @media (min-width: $screen-sm) {
+        border-top: 0;
+        opacity: 0;
+        position: fixed;
+        top: 31px;
+        right: 0;
+        width: 390px;
+        transform: translateX(120%);
+        background-color: rgba(250,250,250,.9);
+        transition: all .2s ease-in-out;
+        padding: $spacing-md;
+        text-align: left;
+        box-shadow: 0 4px 10px rgba(0,0,0,.1);
+        &.contactOpen {
+          display: block;
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .contact-form-send {
+        text-align: right;
+        margin-top: $spacing-md;
+      }
+      .social-buttons {
+        text-align: center;
+        margin-top: $spacing-md;
+        .icon-social  {
+          display: inline-block;
+          svg {
+            width: 50px;
+            height: 50px;
+            fill: #000;
+            opacity: .4;
+            transition: all .2s ease-in-out;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

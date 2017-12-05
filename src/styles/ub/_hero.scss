@@ -1,0 +1,49 @@
+.hero {
+  background-image: linear-gradient(to bottom, $color-primary, $color-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 $spacing-lg;
+  padding: $nav-height 0 0 0;
+  text-align: center;
+
+  transition: height .1s ease-in-out;
+  height: 260px;
+
+  @media (min-width: $screen-sm) {
+    height: 400px;
+  }
+
+  @media (min-width: $screen-md) {
+    height: 450px;
+  }
+  .hero__inner {
+    max-width: $content-width-sm;
+    margin: 0 auto;
+    padding: 0;
+
+    .type {
+      max-width: $content-width-sm;
+      color: #fff;
+      padding-right: 2px;
+      .typed-cursor {
+        font-size: 1.5rem;
+        font-weight: bold;
+        animation: blink 1s infinite;
+      }
+
+      @media (min-width: $screen-sm) {
+        max-width: 700px;
+        .typed-cursor {
+          font-size: 2.3rem;
+        }
+      }
+      @media (min-width: $screen-md) {
+        max-width: $content-width-lg;
+        .typed-cursor {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+}

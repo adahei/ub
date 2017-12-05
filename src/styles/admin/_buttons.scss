@@ -1,0 +1,14 @@
+.button {
+  cursor: pointer;
+  border: 1px solid $gray-light-1;
+  background-color: $gray-light-4;
+  color: $gray-dark-6;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  font-size: .9rem;
+  transition: all .2s ease-in-out;
+  &:hover, &:focus {
+    background-color: $gray-light-2;
+    border-color: $gray;
+  }
+}

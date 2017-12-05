@@ -1,0 +1,18 @@
+.control {
+  position: relative;
+  label {
+    display: block;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: .8rem;
+    text-align: left;
+  }
+  &-element {
+    display: block;
+    width: 100%;
+    padding: .5rem;
+    font-size: 1rem;
+    border: 1px solid $gray-light-1;
+    background-color: $white;
+  }
+}
