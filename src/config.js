@@ -3,12 +3,12 @@
 import Firebase from 'firebase';
 
 let config = {
-  apiKey: '',
-  authDomain: '',
-  databaseURL: '',
-  projectId: '',
-  storageBucket: '',
-  messagingSenderId: ''
+  apiKey: 'AIzaSyDrSRiG3yXWtNNw219uQrCST92w8t5dOQg',
+  authDomain: 'utvecklarbolaget-2e215.firebaseapp.com',
+  databaseURL: 'https://utvecklarbolaget-2e215.firebaseio.com',
+  projectId: 'utvecklarbolaget-2e215',
+  storageBucket: 'utvecklarbolaget-2e215.appspot.com',
+  messagingSenderId: '1045194096281'
 }
 
 let app = Firebase.initializeApp(config);
