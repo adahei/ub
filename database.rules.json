@@ -1,6 +1,6 @@
 {
   "rules": {
-    ".write": "auth.uid === 'i7UgT7DPZ7OBCo6JekHDcduN9sE2'",
+    ".write": "auth.uid === ''",
     ".read": true,
     "ubSections": {
       "$id": {
