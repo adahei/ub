@@ -23,7 +23,7 @@
           </g>
         </svg>
       </div>
-      <button type="button" class="hamburger" @click="open = !open"><i class="fa fa-bars"></i></button>
+      <button type="button" class="hamburger" @click="toggleNav"><i class="fa fa-bars"></i></button>
       <transition name="nav">
         <div class="navigation" :class="{'open': open}" v-if="!loading">
           <scrollactive
@@ -132,6 +132,10 @@ export default {
         this.error = true
         console.log('Error')
       })
+    },
+    toggleNav () {
+      this.open = !this.open
+      this.contactOpen = !this.contactOpen
     }
   },
   watch: {
@@ -139,6 +143,10 @@ export default {
       if (this.nav.length > 0) {
         this.loading = false
       }
+    },
+    showContact: function () {
+      this.open = this.showContact
+      this.contactOpen = this.showContact
     }
   }
 }

@@ -11,12 +11,19 @@
   @media (min-width: $screen-md) {
     max-width: $content-width-lg;
   }
-  .section-title {
+  &-title {
     text-align: center;
     font-weight: normal;
     font-size: 2rem;
     margin: $spacing-sm 0 0;
     text-transform: uppercase;
+  }
+  &-img {
+    text-align: center;
+    margin-bottom: $spacing-sm;
+    img {
+      max-width: 100%;
+    }
   }
 
   p {

@@ -26,6 +26,7 @@
           <label for="file">Attach files</label>
           <input id="file" @change="uploadFeaturedImage" class="form-control-file" type="file" name="resume">
           <img v-if="section.img" :src="section.img" class=" mx-auto d-block" style="max-width: 50%">
+          <button v-if="section.img" type="button" class="btn btn-danger" @click="removeImg"><i class="fa fa-trash"></i> Remove image</button>
         </div>
         <div class="form-group col-4">
           <h3>Quotes</h3>
@@ -48,6 +49,7 @@
     <aside class="border border-dark p-3 mb-4">
       <p class="badge badge-pill badge-secondary">Preview</p>
       <h1>{{section.title}}</h1>
+      <div v-if="section.img" class="text-center"><img :src="section.img" :alt="section.title"></div>
       <div v-html="section.body"></div>
       <div v-if="section.quote.body">
         <blockquote>
@@ -110,6 +112,9 @@ export default {
           name: snapshot.metadata.name
         })
       }).bind(this));
+    },
+    removeImg () {
+      this.section.img = ''
     }
   },
   computed: {

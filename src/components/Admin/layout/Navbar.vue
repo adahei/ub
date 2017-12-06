@@ -41,26 +41,26 @@ export default {
           path: '/admin/hero',
           icon: 'fa-header'
         },
-        {
-          name: 'posts',
-          path: '/admin/posts',
-          icon: 'fa-file-text'
-        },
-        {
-          name: 'Pages',
-          path: '/admin/pages',
-          icon: 'fa-archive'
-        },
-        {
-          name: 'Media',
-          path: '/admin/media',
-          icon: 'fa-picture-o'
-        },
-        {
-          name: 'Settings',
-          path: '/admin/settings',
-          icon: 'fa-gear'
-        },
+        // {
+        //   name: 'posts',
+        //   path: '/admin/posts',
+        //   icon: 'fa-file-text'
+        // },
+        // {
+        //   name: 'Pages',
+        //   path: '/admin/pages',
+        //   icon: 'fa-archive'
+        // },
+        // {
+        //   name: 'Media',
+        //   path: '/admin/media',
+        //   icon: 'fa-picture-o'
+        // },
+        // {
+        //   name: 'Settings',
+        //   path: '/admin/settings',
+        //   icon: 'fa-gear'
+        // },
       ]
     }
   },

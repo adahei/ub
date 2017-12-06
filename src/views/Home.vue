@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <ub-navbar :nav="navigation" @navigate="val => { navigateTo(val) }"/>
+    <ub-navbar ref="nav" :nav="navigation" @navigate="val => { navigateTo(val) }" :class="{'scrolledPast': scrolledPastNav}"/>
     <ub-hero/>
     <transition name="section-loader">
       <div class="section-loader" v-if="loading"></div>
     </transition>
     <section class="section" v-for="section in sortedSections">
       <h2 class="section-title" v-if="section.showTitle" :ref="section['.key']" :id="section.title">{{ section.title }}</h2>
-      <div v-if="section.img">
+      <div class="section-img" v-if="section.img">
         <img :src="section.img" :alt="section.title">
       </div>
       <div v-html="section.body"></div>
@@ -80,6 +80,8 @@ export default {
   data () {
     return {
       loading: false,
+      scrolledPastNav: false,
+      openContact: false,
       range: {
         frontend: 4,
         consult: 0,
@@ -89,6 +91,8 @@ export default {
   },
   created () {
     this.loading = true
+    var self = this
+    window.addEventListener('scroll', this.scroll);
   },
   firebase: {
     sections: {
@@ -123,9 +127,20 @@ export default {
     navigateTo (ref) {
       let el = this.$refs[ref][0]
       let top = el.offsetTop
-
       window.scrollTo(0, top)
-    }
+    },
+    handleContact () {
+      this.$refs.nav.open = !this.$refs.nav.open
+      this.$refs.nav.contactOpen = !this.$refs.nav.contactOpen
+    },
+    scroll: _.debounce(function () {
+      var hero = document.querySelector('.hero')
+      if (window.scrollY > hero.offsetHeight) {
+        this.scrolledPastNav = true
+      } else {
+        this.scrolledPastNav = false
+      }
+    }, 20)
   }
 }
 

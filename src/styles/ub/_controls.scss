@@ -9,8 +9,11 @@
 
 a {
   text-decoration: none;
+  color: $link-color;
+  &:hover {
+    color: $link-hover-color;
+  }
 }
-
 label {
   display: inline-block;
   cursor: pointer;

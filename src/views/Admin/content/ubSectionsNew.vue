@@ -57,45 +57,6 @@
       </div>
     </aside>
   </section>
-
-
-
-
-  <!-- <div>
-    <h3>Add new section</h3>
-    <div>
-      <input type="number" v-model="order" placeholder="order">
-    </div>
-    <div>
-      <input type="text" v-model="title" placeholder="title">
-      <label for="showTitle">show title
-        <input type="checkbox" v-model="showTitle">
-      </label>
-    </div>
-
-    <div>
-      <quill-editor v-model="body" :options="editorOptions">
-      </quill-editor>
-      <input type="file" id="getImage" style="display: none;" @change="uploadImage">
-    </div>
-
-    <div class="field">
-      <label class="label">Image</label>
-      <img :src="featuredImage">
-      <label>
-        <input @change="uploadFeaturedImage" type="file" name="resume">
-        Fil
-      </label>
-    </div>
-
-    <div>
-      <input type="text" v-model="quote.source" placeholder="source">
-      <textarea v-model="quote.body"></textarea>
-    </div>
-
-    <button type="submit" @click="add">Add</button>
-    <router-link to="/admin/ubSections">Cancel</router-link>
-  </div> -->
 </template>
 
 <script>
@@ -105,7 +66,6 @@ import { mediaRef } from '../../../config';
 import VueQuillEditor from 'vue-quill-editor';
 import editorOptions from './editor-options';
 import imageLoader from '../../../mixins/image-loader';
-// import notifier from '../../../mixins/notifier';
 
 export default {
   name: 'ubSections-new',
