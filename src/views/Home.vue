@@ -2,33 +2,18 @@
   <div id="app">
     <ub-navbar :nav="navigation" @navigate="val => { navigateTo(val) }"/>
     <ub-hero/>
-    <transition name="section">
-      <div>
-        <section class="section" v-for="section in sortedSections">
-          <h2 class="section-title" v-if="section.showTitle" :ref="section['.key']" :id="section.title">{{ section.title }}</h2>
-          <div v-if="section.img">
-            <img :src="section.img" :alt="section.title">
-          </div>
-          <div v-html="section.body"></div>
-          <ub-quote :body="section.quote.body" :source="section.quote.source" />
-        </section>
-        <ub-spinner/>
-        <!-- <section class="section calculator" v-for="spinner in spinners">
-          <h2 class="section-title" id="Lönesnurra">Lönesnurra</h2>
-          <div v-html="spinner.body"></div>
-          <ub-range :label="spinner.range.frontend" id="frontend" :start="4" :min="4" :max="10" v-model="range.frontend"/>
-          <ub-range :label="spinner.range.consult" id="consultant" :start="0" :min="0" :max="10" v-model="range.consult"/>
-          <ub-range :label="spinner.range.frameworks" id="frameworks" :start="0" :min="0" :max="10" v-model="range.frameworks"/>
-
-          <div class="checkbox-control">
-            <label id="professional-value" for="professional" class="checkboxed"><input id="professional" type="checkbox" /> Jag har mer &auml;n&nbsp;5&nbsp;&aring;rs erfarenhet av&nbsp;CSS, HTML, Responsive Design och Agila utvecklarmetoder</label>
-          </div>
-          <div class="checkbox-control">
-            <label id="nodejs-value" for="nodejs" class="checkboxed"><input id="nodejs" type="checkbox" /> Jag kan NodeJs</label>
-          </div>
-        </section> -->
-      </div>
+    <transition name="section-loader">
+      <div class="section-loader" v-if="loading"></div>
     </transition>
+    <section class="section" v-for="section in sortedSections">
+      <h2 class="section-title" v-if="section.showTitle" :ref="section['.key']" :id="section.title">{{ section.title }}</h2>
+      <div v-if="section.img">
+        <img :src="section.img" :alt="section.title">
+      </div>
+      <div v-html="section.body"></div>
+      <ub-quote :body="section.quote.body" :source="section.quote.source" />
+    </section>
+    <ub-spinner/>
     <footer class="footer" role="contentinfo">
       <div class="hello" itemscope itemtype="http://data-vocabulary.org/Person">
         <img class="face" src="https://utvecklarbolaget.firebaseapp.com/images/emanuel_fratini.jpg" alt="Emanuel Fratini">
@@ -38,7 +23,6 @@
           <p itemprop="description">
             Jag har arbetat med affärsutveckling inom IT i <br/>10 år och varit kapten sedan barnsben.
           </p>
-
           <a href="mailto:ef@utvecklarbolaget.se" itemprop="email">ef@utvecklarbolaget.se</a><br/>
           <a href="tel:087032588" itemprop="telephone">08-703 25 88</a>
 
@@ -149,10 +133,13 @@ export default {
 
 <style lang="scss">
 @import '../styles/ub';
-.section-enter-active, .section-leave-active {
-  transition: opacity 1s ease-out;
+.section-loader {
+  height: 100vh;
 }
-.section-enter, .section-leave-to {
-  opacity: 0;
+.section-loader-enter-active, .section-loader-leave-active {
+  transition: height .4s ease-out;
+}
+.section-loader-enter, .section-loader-leave-to {
+  height: 0;
 }
 </style>

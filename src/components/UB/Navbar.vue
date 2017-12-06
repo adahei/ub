@@ -24,62 +24,64 @@
         </svg>
       </div>
       <button type="button" class="hamburger" @click="open = !open"><i class="fa fa-bars"></i></button>
-      <div class="navigation" :class="{'open': open}">
-        <scrollactive
-          active-class="active"
-          :offset="80"
-          :duration="800"
-          bezier-easing-value=".5,0,.35,1"
-        >
-          <ul>
-            <li v-for="item in nav"><a class="navigation__item scrollactive-item" :href="'#' + item.title">{{item.title}}</a></li>
-            <li><a class="navigation__item scrollactive-item" :href="'#Lönesnurra'">Lönesnurra</a></li>
+      <transition name="nav">
+        <div class="navigation" :class="{'open': open}" v-if="!loading">
+          <scrollactive
+            active-class="active"
+            :offset="80"
+            :duration="800"
+            bezier-easing-value=".5,0,.35,1"
+          >
+            <ul>
+              <li v-for="item in nav"><a class="navigation__item scrollactive-item" :href="'#' + item.title">{{item.title}}</a></li>
+              <li><a class="navigation__item scrollactive-item" :href="'#Lönesnurra'">Lönesnurra</a></li>
+            </ul>
+          </scrollactive>
+          <ul class="nav-contact-item">
+            <li>
+              <li><a href="#" class="navigation__item scrollactive-item" @click.prevent="contactOpen = !contactOpen" :class="{'active': contactOpen}">Kontakt</a></li>
+            </li>
           </ul>
-        </scrollactive>
-        <ul class="nav-contact-item">
-          <li>
-            <li><a href="#" class="navigation__item scrollactive-item" @click.prevent="contactOpen = !contactOpen" :class="{'active': contactOpen}">Kontakt</a></li>
-          </li>
-        </ul>
-        <div class="navigation__contact" :class="{'contactOpen': contactOpen}">
-          <div v-if="sent" class="data-sent-message">Tack f&ouml;r att du&nbsp;valt att kontakta Utvecklarbolaget, vi&nbsp;&aring;terkopplar snarast!</div>
-          <h2>Kontakt</h2>
-          <form @submit.prevent="submit" class="contact-form" id="contact-form">
-            <fieldset class="form-field">
-              <label for="name">Namn</label>
-              <input type="text" id="name" name="name" v-model="name"/>
-            </fieldset>
-            <fieldset class="form-field">
-              <label for="email">E-post</label>
-              <input type="email" id="email" name="email" v-model="email"/>
-            </fieldset>
-            <fieldset class="form-field">
-              <label for="message">Meddelande</label>
-              <textarea id="message" name="message" v-model="message"></textarea>
-            </fieldset>
-            <div v-if="error">Tyv&auml;rr kunde vi&nbsp;inte s&auml;nda ditt meddelande, f&ouml;rs&ouml;k igen om&nbsp;en&nbsp;liten stund</div>
-            <div class="contact-form-send">
-              <button type="submit" id="send-contact-details">Skicka</button>
+          <div class="navigation__contact" :class="{'contactOpen': contactOpen}">
+            <div v-if="sent" class="data-sent-message">Tack f&ouml;r att du&nbsp;valt att kontakta Utvecklarbolaget, vi&nbsp;&aring;terkopplar snarast!</div>
+            <h2>Kontakt</h2>
+            <form @submit.prevent="submit" class="contact-form" id="contact-form">
+              <fieldset class="form-field">
+                <label for="name">Namn</label>
+                <input type="text" id="name" name="name" v-model="name"/>
+              </fieldset>
+              <fieldset class="form-field">
+                <label for="email">E-post</label>
+                <input type="email" id="email" name="email" v-model="email"/>
+              </fieldset>
+              <fieldset class="form-field">
+                <label for="message">Meddelande</label>
+                <textarea id="message" name="message" v-model="message"></textarea>
+              </fieldset>
+              <div v-if="error">Tyv&auml;rr kunde vi&nbsp;inte s&auml;nda ditt meddelande, f&ouml;rs&ouml;k igen om&nbsp;en&nbsp;liten stund</div>
+              <div class="contact-form-send">
+                <button type="submit" id="send-contact-details">Skicka</button>
+              </div>
+            </form>
+            <div class="social-buttons">
+              <a href="https://www.facebook.com/utvecklarbolaget/" class="icon-social icon-facebook" target="_blank">
+                <svg enable-background="new 0 0 144.083 144" height="144px" id="Facebook" version="1.1" viewBox="0 0 144.083 144" width="144.083px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M72.041,11.166c-33.543,0-60.833,27.29-60.833,60.834c0,33.545,27.29,60.834,60.833,60.834  c33.544,0,60.835-27.289,60.835-60.834C132.875,38.456,105.584,11.166,72.041,11.166z M72.041,126.834  c-30.235,0-54.833-24.598-54.833-54.834c0-30.235,24.598-54.834,54.833-54.834c30.235,0,54.835,24.599,54.835,54.834  C126.875,102.236,102.276,126.834,72.041,126.834z"/>
+                <path d="M90.792,36.304H77.596c-0.031,0-0.061,0.001-0.09,0.004c-13.323,0.042-15.063,9.345-15.07,17.476  c-0.018,0.076-0.028,0.154-0.028,0.235v5.708h-9.118c-0.552,0-1,0.448-1,1v14.077c0,0.553,0.448,1,1,1h9.118v30.891  c0,0.553,0.448,1,1,1h13.307c0.553,0,1-0.447,1-1V75.805h13.076c0.553,0,1-0.447,1-1V60.728c0-0.552-0.447-1-1-1H76.715v-7.567  h14.076c0.553,0,1-0.448,1-1V37.304C91.792,36.752,91.344,36.304,90.792,36.304z"/>
+              </svg>
+              </a>
+              <a href="https://www.linkedin.com/company/utvecklarbolaget" class="icon-social icon-linkedin" target="_blank">
+                <svg enable-background="new 0 0 144.083 144" height="144px" id="linkedin" version="1.1" viewBox="0 0 144.083 144" width="144.083px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M72.041,11.166c-33.543,0-60.833,27.29-60.833,60.834c0,33.545,27.29,60.834,60.833,60.834  c33.544,0,60.835-27.289,60.835-60.834C132.875,38.456,105.584,11.166,72.041,11.166z M72.041,126.834  c-30.235,0-54.833-24.598-54.833-54.834c0-30.235,24.598-54.834,54.833-54.834c30.235,0,54.835,24.599,54.835,54.834  C126.875,102.236,102.276,126.834,72.041,126.834z"/>
+                <rect height="36.734" width="14.078" x="41.143" y="59.11"/>
+                <ellipse cx="48.042" cy="46.75" rx="7.125" ry="6.5"/>
+                <path d="M90.608,58.28c-2.883,0-5.326,0.525-7.334,1.574c-2.006,1.05-3.988,2.796-5.949,5.24V59.11H64.215v36.734h14.078V78.203  c0-3.344,0.531-5.66,1.592-6.952c1.061-1.291,2.443-1.937,4.15-1.937c1.545,0,2.744,0.479,3.598,1.436  c0.854,0.957,1.279,2.588,1.279,4.895v20.199h14.148V72.497c0-4.843-1.102-8.423-3.305-10.741  C97.555,59.438,94.504,58.28,90.608,58.28z"/>
+              </svg>
+              </a>
             </div>
-          </form>
-          <div class="social-buttons">
-            <a href="https://www.facebook.com/utvecklarbolaget/" class="icon-social icon-facebook" target="_blank">
-              <svg enable-background="new 0 0 144.083 144" height="144px" id="Facebook" version="1.1" viewBox="0 0 144.083 144" width="144.083px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <path d="M72.041,11.166c-33.543,0-60.833,27.29-60.833,60.834c0,33.545,27.29,60.834,60.833,60.834  c33.544,0,60.835-27.289,60.835-60.834C132.875,38.456,105.584,11.166,72.041,11.166z M72.041,126.834  c-30.235,0-54.833-24.598-54.833-54.834c0-30.235,24.598-54.834,54.833-54.834c30.235,0,54.835,24.599,54.835,54.834  C126.875,102.236,102.276,126.834,72.041,126.834z"/>
-              <path d="M90.792,36.304H77.596c-0.031,0-0.061,0.001-0.09,0.004c-13.323,0.042-15.063,9.345-15.07,17.476  c-0.018,0.076-0.028,0.154-0.028,0.235v5.708h-9.118c-0.552,0-1,0.448-1,1v14.077c0,0.553,0.448,1,1,1h9.118v30.891  c0,0.553,0.448,1,1,1h13.307c0.553,0,1-0.447,1-1V75.805h13.076c0.553,0,1-0.447,1-1V60.728c0-0.552-0.447-1-1-1H76.715v-7.567  h14.076c0.553,0,1-0.448,1-1V37.304C91.792,36.752,91.344,36.304,90.792,36.304z"/>
-            </svg>
-            </a>
-            <a href="https://www.linkedin.com/company/utvecklarbolaget" class="icon-social icon-linkedin" target="_blank">
-              <svg enable-background="new 0 0 144.083 144" height="144px" id="linkedin" version="1.1" viewBox="0 0 144.083 144" width="144.083px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <path d="M72.041,11.166c-33.543,0-60.833,27.29-60.833,60.834c0,33.545,27.29,60.834,60.833,60.834  c33.544,0,60.835-27.289,60.835-60.834C132.875,38.456,105.584,11.166,72.041,11.166z M72.041,126.834  c-30.235,0-54.833-24.598-54.833-54.834c0-30.235,24.598-54.834,54.833-54.834c30.235,0,54.835,24.599,54.835,54.834  C126.875,102.236,102.276,126.834,72.041,126.834z"/>
-              <rect height="36.734" width="14.078" x="41.143" y="59.11"/>
-              <ellipse cx="48.042" cy="46.75" rx="7.125" ry="6.5"/>
-              <path d="M90.608,58.28c-2.883,0-5.326,0.525-7.334,1.574c-2.006,1.05-3.988,2.796-5.949,5.24V59.11H64.215v36.734h14.078V78.203  c0-3.344,0.531-5.66,1.592-6.952c1.061-1.291,2.443-1.937,4.15-1.937c1.545,0,2.744,0.479,3.598,1.436  c0.854,0.957,1.279,2.588,1.279,4.895v20.199h14.148V72.497c0-4.843-1.102-8.423-3.305-10.741  C97.555,59.438,94.504,58.28,90.608,58.28z"/>
-            </svg>
-            </a>
           </div>
         </div>
-      </div>
+      </transition>
     </div>
   </header>
 </template>
@@ -93,8 +95,12 @@ export default {
       required: true
     }
   },
+  mounted () {
+    this.loading = true
+  },
   data () {
     return {
+      loading: true,
       open: false,
       contactOpen: false,
       name: '',
@@ -127,9 +133,29 @@ export default {
         console.log('Error')
       })
     }
+  },
+  watch: {
+    nav: function () {
+      if (this.nav.length > 0) {
+        this.loading = false
+      }
+    }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import '../../styles/ub/variables';
+@media (min-width: $screen-sm) {
+  .nav-enter-active {
+    transition: all .3s ease;
+  }
+  .nav-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .nav-enter, .nav-leave-to {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
 </style>
