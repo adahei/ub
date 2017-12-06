@@ -119,7 +119,6 @@ const routes = [
 ]
 
 const router = new Router({
-  mode: 'history',
   base: __dirname,
   routes
 })
