@@ -43,7 +43,6 @@
             </li>
           </ul>
           <div class="navigation__contact" :class="{'contactOpen': contactOpen}">
-            <div v-if="sent" class="data-sent-message">Tack f&ouml;r att du&nbsp;valt att kontakta Utvecklarbolaget, vi&nbsp;&aring;terkopplar snarast!</div>
             <h2>Kontakt</h2>
             <form @submit.prevent="submit" class="contact-form" id="contact-form">
               <fieldset class="form-field">
@@ -58,7 +57,8 @@
                 <label for="message">Meddelande</label>
                 <textarea id="message" name="message" v-model="message"></textarea>
               </fieldset>
-              <div v-if="error">Tyv&auml;rr kunde vi&nbsp;inte s&auml;nda ditt meddelande, f&ouml;rs&ouml;k igen om&nbsp;en&nbsp;liten stund</div>
+              <div v-if="sent" class="data-sent-message">Tack f&ouml;r att du&nbsp;valt att kontakta Utvecklarbolaget, vi&nbsp;&aring;terkopplar snarast!</div>
+              <div v-if="error" class="data-error-message">Tyv&auml;rr kunde vi&nbsp;inte s&auml;nda ditt meddelande, f&ouml;rs&ouml;k igen om&nbsp;en&nbsp;liten stund</div>
               <div class="contact-form-send">
                 <button type="submit" id="send-contact-details">Skicka</button>
               </div>
@@ -117,13 +117,12 @@ export default {
     submit () {
       this.sent = false
       this.error = false
-      console.log('submit')
-      var form = {
-        name: this.name,
-        email: this.email,
-        message: this.message
-      }
-      axios.post('https://heidmark.se/test/contact.php', JSON.stringify(form))
+
+      var params = new URLSearchParams()
+      params.append('name', this.name)
+      params.append('email', this.email)
+      params.append('message', this.message)
+      axios.post('https://heidmark.se/test/contact.php', params)
       .then(response => {
         this.sent = true
         console.log(response)
@@ -154,6 +153,19 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../styles/ub/variables';
+.data-sent-message,
+.data-error-message {
+  padding: .5rem;
+  margin: $spacing-sm 0;
+}
+.data-sent-message {
+  background-color: $success-bg-color;
+  color: $success-border-color;
+}
+.data-error-message {
+  background-color: $error-bg-color;
+  color: $error-border-color;
+}
 @media (min-width: $screen-sm) {
   .nav-enter-active {
     transition: all .3s ease;

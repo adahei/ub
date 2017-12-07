@@ -122,8 +122,8 @@
           <label for="phone">Ange ditt telefonnummer</label>
           <input type="phone" id="phone" name="phone" required placeholder="Telefonnummer" v-model="form.phone"/>
         </fieldset>
-
-        <div class="data-error-message">Tyv&auml;rr kunde vi&nbsp;inte s&auml;nda ditt meddelande, f&ouml;rs&ouml;k igen om&nbsp;en&nbsp;liten stund</div>
+        <div v-if="sendSuccess" class="data-sent-message">Tack f&ouml;r att du&nbsp;valt att kontakta Utvecklarbolaget, vi&nbsp;&aring;terkopplar snarast!</div>
+        <div v-if="sendError" class="data-error-message">Tyv&auml;rr kunde vi&nbsp;inte s&auml;nda ditt meddelande, f&ouml;rs&ouml;k igen om&nbsp;en&nbsp;liten stund</div>
 
         <input type="hidden" id="frontend-hidden" name="frontend_years" :value="range.frontend" />
         <input type="hidden" id="consultant-hidden" name="consultant_years" :value="range.consult" />
@@ -133,7 +133,7 @@
         <input type="hidden" id="calculation-hidden" name="salary" :value="salary" />
 
         <div class="calculator-form-send">
-          <button type="submit" id="send-calculator-details">Skicka</button>
+          <button type="submit" id="send-calculator-details" :disabled="sendSuccess">Skicka</button>
         </div>
       </form>
     </div>
@@ -165,7 +165,9 @@ export default {
       form: {
         email: '',
         phone: ''
-      }
+      },
+      sendSuccess: false,
+      sendError: false
     }
   },
   firebase: {
@@ -240,24 +242,27 @@ export default {
       }
     },
     sendMail () {
-      var form = {
-        email: this.form.email,
-        phone: this.form.phone,
-        frontend_years: this.range.frontend,
-        consultant_years: this.range.consult,
-        js_frameworks: this.range.frameworks,
-        professional: (this.checkboxes.exp ? 'Yes' : 'No'),
-        nodejs: (this.checkboxes.node ? 'Yes' : 'No'),
-        salary: this.salary
-      }
+      this.sendError = false
+      this.sendSuccess = false
+      var params = new URLSearchParams()
+      params.append('email', this.form.email)
+      params.append('phone', this.form.phone)
+      params.append('frontend_years', this.range.frontend)
+      params.append('consultant_years', this.range.consult)
+      params.append('js_frameworks', this.range.frameworks)
+      params.append('professional', (this.checkboxes.exp ? 'Yes' : 'No'))
+      params.append('nodejs', (this.checkboxes.node ? 'Yes' : 'No'))
+      params.append('salary', Math.round(this.salary))
 
       // axios.post(window.location.protocol + '//utvecklarbolaget.se/calculator.php', form)
-      axios.post('https://heidmark.se/test/calculator.php', JSON.stringify(form))
+      axios.post('https://heidmark.se/test/calculator.php', params)
       .then(response => {
         console.log(response)
+        this.sendSuccess = true
       })
       .catch(e => {
         console.log('Error')
+        this.sendError = true
       })
     }
   },
@@ -408,5 +413,17 @@ $calculator-send-bg: #f8f8f8;
       width: 100%;
     }
   }
+}
+.data-sent-message {
+  background-color: $success-bg-color;
+  color: $success-border-color;
+  padding: .5rem;
+  margin-bottom: $spacing-sm;
+}
+.data-error-message {
+  background-color: $error-bg-color;
+  color: $error-border-color;
+  padding: .5rem;
+  margin-bottom: $spacing-sm;
 }
 </style>

@@ -141,6 +141,11 @@ export default {
         this.scrolledPastNav = false
       }
     }, 20)
+  },
+  watch: {
+    loading: function () {
+      console.log('Hello!')
+    }
   }
 }
 

@@ -74,10 +74,11 @@
       bottom: 0;
     }
 
-    q {
+    p {
       font-style: italic;
       color: $color-header-color;
       display: block;
+      margin-bottom: 0;
 
       &:before,
       &:after {
