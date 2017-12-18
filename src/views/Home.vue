@@ -29,14 +29,16 @@
           <div itemscope itemtype="http://schema.org/Organization">
             <span class="hidden" itemprop="name">Utvecklarbolaget</span>
             <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-              <span itemprop="streetAddress">Torsgatan 8A</span>
-              <span itemprop="postalCode">111 23</span>,
-              <span itemprop="addressRegion">Stockholm</span>
-                <span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
-                  <br/>Lat Long<br/>
-                  <span itemprop="latitude">59.335677</span>,
-                  <span itemprop="longitude">18.051774</span>
-                </span>
+              <a href="https://www.google.com/maps/place/Torsgatan+8A,+111+23+Stockholm/@59.3356769,18.0495805,17z" target="_blank">
+                <span itemprop="streetAddress">Torsgatan 8A</span>
+                <span itemprop="postalCode">111 23</span>,
+                <span itemprop="addressRegion">Stockholm</span>
+              </a>
+              <span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+                <br/>Lat Long<br/>
+                <span itemprop="latitude">59.335677</span>,
+                <span itemprop="longitude">18.051774</span>
+              </span>
             </address>
           </div>
         </div>
