@@ -1,19 +1,19 @@
 <template>
   <div id="app">
     <ub-navbar ref="nav" :nav="navigation" @navigate="val => { navigateTo(val) }" :class="{'scrolledPast': scrolledPastNav}"/>
-    <ub-hero/>
+    <ub-hero id="hem"/>
     <transition name="section-loader">
       <div class="section-loader" v-if="loading"></div>
     </transition>
-    <section class="section" v-for="section in sortedSections">
-      <h2 class="section-title" v-if="section.showTitle" :ref="section['.key']" :id="section.title">{{ section.title }}</h2>
+    <section class="section" v-for="section in sortedSections" :id="friendlyURL(section.title)">
+      <h2 class="section-title" v-if="section.showTitle" :ref="section['.key']" >{{ section.title }}</h2>
       <div class="section-img" v-if="section.img">
         <img :src="section.img" :alt="section.title">
       </div>
       <div v-html="section.body"></div>
       <ub-quote :body="section.quote.body" :source="section.quote.source" />
     </section>
-    <ub-spinner/>
+    <ub-spinner id="lonesnurra"/>
     <footer class="footer" role="contentinfo">
       <div class="hello" itemscope itemtype="http://data-vocabulary.org/Person">
         <img class="face" src="https://utvecklarbolaget.firebaseapp.com/images/emanuel_fratini.jpg" alt="Emanuel Fratini">
@@ -68,8 +68,10 @@ import Navbar from '@/components/UB/Navbar'
 import Quote from '@/components/UB/Quote'
 import Spinner from '@/components/UB/Spinner'
 import Hero from '@/components/UB/Hero'
+import StringHandler from '@/mixins/stringHandler'
 
 export default {
+  mixins: [StringHandler],
   name: 'home',
   components: {
     'ub-navbar': Navbar,
@@ -91,8 +93,10 @@ export default {
   },
   created () {
     this.loading = true
-    var self = this
     window.addEventListener('scroll', this.scroll);
+  },
+  mounted () {
+    window.scrollTo(0,0)
   },
   firebase: {
     sections: {

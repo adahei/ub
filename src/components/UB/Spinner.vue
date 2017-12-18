@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <section class="section calculator" v-for="spinner in spinners">
-      <h2 class="section-title" id="Lönesnurra">Lönesnurra</h2>
+      <h2 class="section-title">Lönesnurra</h2>
       <div v-html="spinner.body"></div>
       <ub-range :label="spinner.range.frontend" id="frontend" :start="4" :min="4" :max="10" v-model="range.frontend" @input="calculate()"/>
       <ub-range :label="spinner.range.consult" id="consultant" :start="0" :min="0" :max="10" v-model="range.consult" @input="calculate()"/>
