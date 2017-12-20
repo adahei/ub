@@ -106,6 +106,7 @@ export default {
       asObject: false,
       readyCallback: function () {
         this.loading = false
+        this.checkContactLinks()
       },
       cancelCallback(erro) {
         this.loading = false
@@ -146,11 +147,19 @@ export default {
       } else {
         this.scrolledPastNav = false
       }
-    }, 20)
-  },
-  watch: {
-    loading: function () {
-      console.log('Hello!')
+    }, 20),
+    checkContactLinks () {
+      var contactLinks = []
+      var self = this
+      setTimeout(function () {
+        contactLinks = document.querySelectorAll('a[href="#kontakt"]')
+        for (let i = 0; i < contactLinks.length; i++) {
+          contactLinks[i].addEventListener('click', event => {
+            event.preventDefault()
+            self.handleContact()
+          }, false)
+        }
+      }, 1000)
     }
   }
 }
