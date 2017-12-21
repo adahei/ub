@@ -32,6 +32,11 @@ const routes = [
     component: load('Calculator')
   },
   {
+    path: '/job',
+    name: 'Job',
+    component: load('Job')
+  },
+  {
     path: '/login',
     name: 'Login',
     component: load('Admin/Login')
@@ -52,6 +57,20 @@ const routes = [
           {
             path: 'edit/:key',
             component: load('Admin/content/ubSectionsEdit')
+          }
+        ]
+      },
+      {
+        path: 'jobSections',
+        component: load('Admin/content/jobSections'),
+        children: [
+          {
+            path: 'new',
+            component: load('Admin/content/jobSectionsNew')
+          },
+          {
+            path: 'edit/:key',
+            component: load('Admin/content/jobSectionsEdit')
           }
         ]
       },
@@ -125,71 +144,3 @@ const router = new Router({
 })
 
 export default router
-//
-// export default new Router({
-//   mode: "history",
-//   routes: [
-//     {
-//       path: '/',
-//       name: 'Home',
-//       component: Home
-//     },
-//     {
-//       path: '/login',
-//       name: 'Login',
-//       component: Login
-//     },
-//     {
-//       path: '/admin',
-//       name: 'Admin',
-//       component: Admin,
-//       children: [
-//         {
-//           path: 'ubSections',
-//           component: Posts,
-//           children: [
-//             {
-//               path: 'new',
-//               component: PostNew
-//             },
-//             {
-//               path: 'edit/:key',
-//               component: PostEdit
-//             }
-//           ]
-//         },
-//         {
-//           path: 'posts',
-//           component: Posts,
-//           children: [
-//             {
-//               path: 'new',
-//               component: PostNew
-//             },
-//             {
-//               path: 'edit/:key',
-//               component: PostEdit
-//             }
-//           ]
-//         },
-//         {
-//           path: 'settings',
-//           component: Settings
-//         },
-//         {
-//           path: 'pages',
-//           component: Pages
-//         },
-//         {
-//           path: 'media',
-//           component: Media
-//         }
-//       ]
-//     },
-//     {
-//       path: '*',
-//       name: 'default',
-//       component: Home
-//     }
-//   ]
-// });

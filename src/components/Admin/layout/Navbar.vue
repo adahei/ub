@@ -27,19 +27,24 @@ export default {
       currentUser: firebase.auth().currentUser,
       menu: [
         {
+          name: 'UB Hero',
+          path: '/admin/hero',
+          icon: 'fa-header'
+        },
+        {
           name: 'UB Sections',
           path: '/admin/ubSections',
           icon: 'fa-file-text'
         },
         {
-          name: 'UB Spinner',
-          path: '/admin/spinner',
-          icon: 'fa-sliders'
+          name: 'Job Sections',
+          path: '/admin/jobSections',
+          icon: 'fa-file-text'
         },
         {
-          name: 'UB Hero',
-          path: '/admin/hero',
-          icon: 'fa-header'
+          name: 'Calculator',
+          path: '/admin/spinner',
+          icon: 'fa-sliders'
         },
         // {
         //   name: 'posts',
