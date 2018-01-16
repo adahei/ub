@@ -43,7 +43,6 @@
           >
             <ul>
               <li v-for="item in nav"><a class="navigation__item scrollactive-item" :href="'#' + friendlyURL(item.title)">{{item.title}}</a></li>
-              <li><a class="navigation__item scrollactive-item" :href="'#lonesnurra'">Lönesnurra</a></li>
             </ul>
           </scrollactive>
           <ul class="nav-contact-item">

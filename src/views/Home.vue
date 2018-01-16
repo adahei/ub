@@ -13,7 +13,6 @@
       <div v-html="section.body"></div>
       <ub-quote :body="section.quote.body" :source="section.quote.source" />
     </section>
-    <ub-spinner id="lonesnurra"/>
     <footer class="footer" role="contentinfo">
       <div class="hello" itemscope itemtype="http://data-vocabulary.org/Person">
         <img class="face" src="https://utvecklarbolaget.firebaseapp.com/images/emanuel_fratini.jpg" alt="Emanuel Fratini">
@@ -68,7 +67,6 @@ import _ from 'lodash'
 import { ubSectionsRef } from '../config'
 import Navbar from '@/components/UB/Navbar'
 import Quote from '@/components/UB/Quote'
-import Spinner from '@/components/UB/Spinner'
 import Hero from '@/components/UB/Hero'
 import StringHandler from '@/mixins/stringHandler'
 
@@ -78,7 +76,6 @@ export default {
   components: {
     'ub-navbar': Navbar,
     'ub-quote': Quote,
-    'ub-spinner': Spinner,
     'ub-hero': Hero
   },
   data () {
