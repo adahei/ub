@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <ub-navbar ref="nav" :nav="navigation" @navigate="val => { navigateTo(val) }" :class="{'scrolledPast': scrolledPastNav}"/>
+    <ub-navbar ref="nav" class="job" :nav="navigation" @navigate="val => { navigateTo(val) }" :class="{'scrolledPast': scrolledPastNav}"/>
     <transition name="section-loader">
       <div class="section-loader" v-if="loading"></div>
     </transition>

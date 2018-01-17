@@ -25,6 +25,15 @@
       max-width: 90%;
     }
   }
+  &.job {
+    .header__inner {
+      @media (min-width: $screen-sm) {
+        // width: 768px;
+        width: auto;
+        max-width: 90%;
+      }
+    }
+  }
   .logo {
     width: 200px;
     margin-bottom: 6px;
