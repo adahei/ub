@@ -15,33 +15,8 @@
     </section>
     <ub-spinner id="lonesnurra"/>
     <footer class="footer" role="contentinfo">
-      <div class="hello" itemscope itemtype="http://data-vocabulary.org/Person">
-        <img class="face" src="https://utvecklarbolaget.firebaseapp.com/images/emanuel_fratini.jpg" alt="Emanuel Fratini">
-        <div class="data">
-          <h2 itemprop="name">Emanuel Fratini</h2>
-          <span class="small" itemprop="jobtitle">VD och Kapten</span>
-          <p itemprop="description">
-            Jag har arbetat med affärsutveckling inom IT i <br/>10 år och varit kapten sedan barnsben.
-          </p>
-          <a href="mailto:ef@utvecklarbolaget.se" itemprop="email">ef@utvecklarbolaget.se</a><br/>
-          <a href="tel:087032588" itemprop="telephone">08-703 25 88</a>
-
-          <div itemscope itemtype="http://schema.org/Organization">
-            <span class="hidden" itemprop="name">Utvecklarbolaget</span>
-            <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-              <a href="https://www.google.com/maps/place/Torsgatan+8A,+111+23+Stockholm/@59.3356769,18.0495805,17z" target="_blank">
-                <span itemprop="streetAddress">Torsgatan 8A</span>
-                <span itemprop="postalCode">111 23</span>,
-                <span itemprop="addressRegion">Stockholm</span>
-              </a>
-              <span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
-                <br/>Lat Long<br/>
-                <span itemprop="latitude">59.335677</span>,
-                <span itemprop="longitude">18.051774</span>
-              </span>
-            </address>
-          </div>
-        </div>
+      <div class="footer__contact">
+        <a href="mailto:info@utvecklarbolaget.se">info@utvecklarbolaget.se</a>
       </div>
       <div class="social-buttons">
         <a href="https://www.facebook.com/utvecklarbolaget/" class="icon-social icon-facebook" target="_blank">
@@ -170,8 +145,21 @@ export default {
 #hem {
   padding-top: 80px;
 }
-.section-loader {
-  height: 100vh;
+.footer__contact {
+  text-align: center;
+  margin: 2rem 0;
+  a {
+    color: #fff;
+    &:hover, &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+.footer {
+  padding: 1rem 0;
+  .section-loader {
+    height: 100vh;
+  }
 }
 .section-loader-enter-active, .section-loader-leave-active {
   transition: height .4s ease-out;
