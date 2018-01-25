@@ -36,6 +36,7 @@
       <transition name="nav">
         <div class="navigation" :class="{'open': open}" v-if="!loading">
           <scrollactive
+            ref="scrollactive-nav"
             active-class="active"
             :offset="100"
             :duration="800"
@@ -43,11 +44,12 @@
           >
             <ul>
               <li v-for="item in nav"><a class="navigation__item scrollactive-item" :href="'#' + friendlyURL(item.title)">{{item.title}}</a></li>
+              <li class="hidden"><a class="custom-lonenurra scrollactive-item" href="#lonesnurra"></a></li>
             </ul>
           </scrollactive>
           <ul class="nav-contact-item">
             <li>
-              <li><a href="#" class="navigation__item scrollactive-item" @click.prevent="contactOpen = !contactOpen" :class="{'active': contactOpen}">Kontakt</a></li>
+              <li><a href="#" class="navigation__item" @click.prevent="contactOpen = !contactOpen" :class="{'active': contactOpen}">Kontakt</a></li>
             </li>
           </ul>
           <div class="navigation__contact" :class="{'contactOpen': contactOpen}">
@@ -103,6 +105,10 @@ export default {
     nav: {
       type: Array,
       required: true
+    },
+    navloaded: {
+      type: Boolean,
+      default: false
     }
   },
   mounted () {

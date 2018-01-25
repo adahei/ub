@@ -14,30 +14,23 @@
       <ub-quote :body="section.quote.body" :source="section.quote.source" />
     </section>
     <footer class="footer" role="contentinfo">
-      <div class="hello" itemscope itemtype="http://data-vocabulary.org/Person">
-        <img class="face" src="https://utvecklarbolaget.firebaseapp.com/images/emanuel_fratini.jpg" alt="Emanuel Fratini">
+      <div class="hello">
+        <img class="face" width="150" height="150" src="/static/img/emanuel.jpg" alt="Emanuel Fratini">
         <div class="data">
-          <h2 itemprop="name">Emanuel Fratini</h2>
-          <span class="small" itemprop="jobtitle">VD och Kapten</span>
-          <p itemprop="description">
+          <h2>Emanuel Fratini</h2>
+          <span class="small">VD och Framtidsbyggare</span>
+          <p>
             Jag har arbetat med affärsutveckling inom IT i <br/>10 år och varit kapten sedan barnsben.
           </p>
-          <a href="mailto:ef@utvecklarbolaget.se" itemprop="email">ef@utvecklarbolaget.se</a><br/>
-          <a href="tel:087032588" itemprop="telephone">08-703 25 88</a>
-
-          <div itemscope itemtype="http://schema.org/Organization">
-            <span class="hidden" itemprop="name">Utvecklarbolaget</span>
+          <a href="mailto:ef@utvecklarbolaget.se">ef@utvecklarbolaget.se</a><br/>
+          <a href="tel:087032588">08-703 25 88</a>
+          <div>
             <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
               <a href="https://www.google.com/maps/place/Torsgatan+8A,+111+23+Stockholm/@59.3356769,18.0495805,17z" target="_blank">
-                <span itemprop="streetAddress">Torsgatan 8A</span>
-                <span itemprop="postalCode">111 23</span>,
-                <span itemprop="addressRegion">Stockholm</span>
+                <span>Torsgatan 8A</span>
+                <span>111 23</span>,
+                <span>Stockholm</span>
               </a>
-              <span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
-                <br/>Lat Long<br/>
-                <span itemprop="latitude">59.335677</span>,
-                <span itemprop="longitude">18.051774</span>
-              </span>
             </address>
           </div>
         </div>

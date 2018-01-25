@@ -1,10 +1,13 @@
 <template lang="html">
   <blockquote class="quote" v-if="body">
-    <p v-if="!longQuote">{{ body }}</p>
-    <p class="quote-sliced" v-if="longQuote" @click="expand = !expand" :class="{'expanded': expand}">
-      <span class="first">{{ body1 }}</span>
-      <span class="second">{{ body2 }}</span>
-    </p>
+    <div v-if="!compact">{{ body }}</div>
+    <div v-if="compact">
+      <p v-if="!longQuote">{{ body }}</p>
+      <p class="quote-sliced" v-if="longQuote" @click="expand = !expand" :class="{'expanded': expand}">
+        <span class="first">{{ body1 }}</span>
+        <span class="second">{{ body2 }}</span>
+      </p>
+    </div>
     <footer class="quote-source">{{ source }}</footer>
   </blockquote>
 </template>
@@ -20,6 +23,10 @@ export default {
     source: {
       type: String,
       required: true
+    },
+    compact: {
+      type: Boolean,
+      default: false
     }
   },
   data () {

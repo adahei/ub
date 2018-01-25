@@ -2,6 +2,7 @@
   <div class="hero">
     <div class="hero__inner">
       <h1>
+        <span class="" v-if="beforeLoad">Tillsammans bygger vi framtiden - i kod, i människa, i bolag.</span>
         <span class="type"></span>
       </h1>
     </div>
@@ -18,11 +19,13 @@ export default {
   name: 'hero-component',
   data () {
     return {
-      loading: false
+      loading: false,
+      beforeLoad: true
     }
   },
   created () {
     this.loading = true
+    this.beforeLoad = false
   },
   firebase: {
     heroes: {

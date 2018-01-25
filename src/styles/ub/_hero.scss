@@ -21,6 +21,7 @@
     max-width: $content-width-sm;
     margin: 0 auto;
     padding: 0;
+    height: 250px;
 
     .type {
       max-width: $content-width-sm;
@@ -40,6 +41,7 @@
       }
       @media (min-width: $screen-md) {
         max-width: $content-width-lg;
+
         .typed-cursor {
           font-size: 3rem;
         }

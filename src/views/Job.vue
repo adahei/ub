@@ -11,12 +11,17 @@
         <img :src="section.img" :alt="section.title">
       </div>
       <div v-html="section.body"></div>
-      <ub-quote :body="section.quote.body" :source="section.quote.source" />
+      <ub-quote :body="section.quote.body" :source="section.quote.source" :compact="section.quote.compact" />
     </section>
     <ub-spinner id="lonesnurra"/>
     <footer class="footer" role="contentinfo">
       <div class="footer__contact">
-        <a href="mailto:info@utvecklarbolaget.se">info@utvecklarbolaget.se</a>
+        <p>Ett utvecklingsbolag för senior spetskompetens inom webbprogrammering.</p>
+        <div>
+          <h3 class="nomargin">Kontakta oss</h3>
+          <a href="mailto:info@utvecklarbolaget.se">info@utvecklarbolaget.se</a> <br/>
+          <a href="tel:087032588">08-703 25 88</a>
+        </div>
       </div>
       <div class="social-buttons">
         <a href="https://www.facebook.com/utvecklarbolaget/" class="icon-social icon-facebook" target="_blank">
@@ -34,6 +39,7 @@
           </svg>
         </a>
       </div>
+      <p class="text-center"><em>Tillsammans bygger vi framtiden - i kod, i människa, i bolag</em></p>
     </footer>
   </div>
 </template>
@@ -59,6 +65,7 @@ export default {
       loading: false,
       scrolledPastNav: false,
       openContact: false,
+      navLoaded: false,
       range: {
         frontend: 4,
         consult: 0,
@@ -80,6 +87,7 @@ export default {
       readyCallback: function () {
         this.loading = false
         this.checkContactLinks()
+        this.checkCalculatorLinks()
       },
       cancelCallback(erro) {
         this.loading = false
@@ -134,6 +142,20 @@ export default {
           }, false)
         }
       }, 1000)
+    },
+    checkCalculatorLinks () {
+      var calculatorLinks = []
+      var self = this
+      setTimeout(function () {
+        calculatorLinks = document.querySelectorAll('a[href="#custom-lonesnurra"]')
+        for (let i = 0; i < calculatorLinks.length; i++) {
+          calculatorLinks[i].addEventListener('click', event => {
+            event.preventDefault()
+            const link = document.querySelector('.custom-lonenurra')
+            link.click()
+          }, false)
+        }
+      }, 600)
     }
   }
 }

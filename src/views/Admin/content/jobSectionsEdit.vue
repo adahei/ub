@@ -34,6 +34,10 @@
           <textarea id="quote" class="form-control" v-model="section.quote.body"></textarea>
           <label for="source">Source</label>
           <input type="text" id="source" class="form-control" v-model="section.quote.source">
+          <label for="compact">
+            <input type="checkbox" id="compact" v-model="section.quote.compact">
+            Is expandable
+          </label>
         </div>
       </div>
       <div class="row mb-4">

@@ -33,6 +33,10 @@
           <textarea id="quote" class="form-control" v-model="quote.body"></textarea>
           <label for="source">Source</label>
           <input type="text" id="source" class="form-control" v-model="quote.source">
+          <label for="compact">
+            <input type="checkbox" id="compact" v-model="quote.compact">
+            Is expandable
+          </label>
         </div>
       </div>
       <div class="row mb-4">
@@ -76,7 +80,8 @@ export default {
       showTitle: true,
       quote: {
         body: '',
-        source: ''
+        source: '',
+        compact: false
       },
       body: '',
       featuredImage: '',
@@ -98,7 +103,8 @@ export default {
           body: this.body,
           quote: {
             body: this.quote.body,
-            source: this.quote.source
+            source: this.quote.source,
+            compact: this.quote.compact
           },
           img: this.featuredImage,
           created: Date.now(),

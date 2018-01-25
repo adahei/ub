@@ -15,8 +15,8 @@ import VueQuillEditor from 'vue-quill-editor';
 Vue.config.productionTip = false;
 
 Vue.use(VueFire);
-Vue.use(VueQuillEditor);
 Vue.use(VueScrollactive);
+Vue.use(VueQuillEditor);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
