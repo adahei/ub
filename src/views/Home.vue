@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <ub-navbar ref="nav" :nav="navigation" @navigate="val => { navigateTo(val) }" :class="{'scrolledPast': scrolledPastNav}"/>
     <ub-hero id="hem"/>
     <transition name="section-loader">
@@ -25,8 +25,8 @@
           <a href="mailto:ef@utvecklarbolaget.se">ef@utvecklarbolaget.se</a><br/>
           <a href="tel:087032588">08-703 25 88</a>
           <div>
-            <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-              <a href="https://www.google.com/maps/place/Torsgatan+8A,+111+23+Stockholm/@59.3356769,18.0495805,17z" target="_blank">
+            <address>
+              <a href="https://www.google.com/maps/place/Torsgatan+8A,+111+23+Stockholm/@59.3356769,18.0495805,17z" target="_blank" rel="noopener">
                 <span>Torsgatan 8A</span>
                 <span>111 23</span>,
                 <span>Stockholm</span>
@@ -36,13 +36,13 @@
         </div>
       </div>
       <div class="social-buttons">
-        <a href="https://www.facebook.com/utvecklarbolaget/" class="icon-social icon-facebook" target="_blank">
+        <a href="https://www.facebook.com/utvecklarbolaget/" class="icon-social icon-facebook" target="_blank" aria-label="Facebook" rel="noopener">
           <svg enable-background="new 0 0 144.083 144" height="144px" id="Facebook" version="1.1" viewBox="0 0 144.083 144" width="144.083px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <path d="M72.041,11.166c-33.543,0-60.833,27.29-60.833,60.834c0,33.545,27.29,60.834,60.833,60.834  c33.544,0,60.835-27.289,60.835-60.834C132.875,38.456,105.584,11.166,72.041,11.166z M72.041,126.834  c-30.235,0-54.833-24.598-54.833-54.834c0-30.235,24.598-54.834,54.833-54.834c30.235,0,54.835,24.599,54.835,54.834  C126.875,102.236,102.276,126.834,72.041,126.834z"/>
             <path d="M90.792,36.304H77.596c-0.031,0-0.061,0.001-0.09,0.004c-13.323,0.042-15.063,9.345-15.07,17.476  c-0.018,0.076-0.028,0.154-0.028,0.235v5.708h-9.118c-0.552,0-1,0.448-1,1v14.077c0,0.553,0.448,1,1,1h9.118v30.891  c0,0.553,0.448,1,1,1h13.307c0.553,0,1-0.447,1-1V75.805h13.076c0.553,0,1-0.447,1-1V60.728c0-0.552-0.447-1-1-1H76.715v-7.567  h14.076c0.553,0,1-0.448,1-1V37.304C91.792,36.752,91.344,36.304,90.792,36.304z"/>
           </svg>
         </a>
-        <a href="https://www.linkedin.com/company/utvecklarbolaget" class="icon-social icon-linkedin" target="_blank">
+        <a href="https://www.linkedin.com/company/utvecklarbolaget" class="icon-social icon-linkedin" target="_blank" aria-label="Linkedin" rel="noopener">
           <svg enable-background="new 0 0 144.083 144" height="144px" id="linkedin" version="1.1" viewBox="0 0 144.083 144" width="144.083px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <path d="M72.041,11.166c-33.543,0-60.833,27.29-60.833,60.834c0,33.545,27.29,60.834,60.833,60.834  c33.544,0,60.835-27.289,60.835-60.834C132.875,38.456,105.584,11.166,72.041,11.166z M72.041,126.834  c-30.235,0-54.833-24.598-54.833-54.834c0-30.235,24.598-54.834,54.833-54.834c30.235,0,54.835,24.599,54.835,54.834  C126.875,102.236,102.276,126.834,72.041,126.834z"/>
             <rect height="36.734" width="14.078" x="41.143" y="59.11"/>

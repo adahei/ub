@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <router-view></router-view>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style lang="scss">
-html, body, #app {
+html, body, #app, .app {
   height: 100%;
   width: 100%;
   margin: 0;
