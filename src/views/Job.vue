@@ -101,7 +101,7 @@ export default {
       return sections
     },
     navigation () {
-      var items = this.sections
+      var items = this.sortedSections
       var navs = []
       for (let i = 0; i < items.length; i++) {
         if (items[i].showTitle) {

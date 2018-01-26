@@ -4,7 +4,6 @@ import Vue from 'vue';
 import VueFire from 'vuefire';
 import App from './App';
 import router from './router';
-import VueScrollactive from 'vue-scrollactive'
 
 // import external stylesheets
 import fontAwesome from '../node_modules/font-awesome/css/font-awesome.css';
@@ -15,7 +14,6 @@ import VueQuillEditor from 'vue-quill-editor';
 Vue.config.productionTip = false;
 
 Vue.use(VueFire);
-Vue.use(VueScrollactive);
 Vue.use(VueQuillEditor);
 /* eslint-disable no-new */
 new Vue({
