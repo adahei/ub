@@ -6,23 +6,23 @@
   "background-color": "#FF6426",
   "description": "Tillsammans bygger vi framtiden - i kod, i människa, i bolag",
   "icons": [{
-    "src": "./static/img/favicon.png",
+    "src": "/static/img/favicon.png",
     "sizes": "16x16",
     "type": "image/png"
   }, {
-    "src": "./static/touch-icon-iphone.png",
+    "src": "/static/touch-icon-iphone.png",
     "sizes": "60x60",
     "type": "image/png"
   }, {
-    "src": "./static/touch-icon-ipad.png",
+    "src": "/static/touch-icon-ipad.png",
     "sizes": "76x76",
     "type": "image/png"
   }, {
-    "src": "./static/touch-icon-iphone-retina.png",
+    "src": "/static/touch-icon-iphone-retina.png",
     "sizes": "120x120",
     "type": "image/png"
   }, {
-    "src": "./static/touch-icon-ipad-retina.png",
+    "src": "/static/touch-icon-ipad-retina.png",
     "sizes": "152x152",
     "type": "image/png"
   }]
