@@ -17,6 +17,7 @@
     "lodash": "^4.17.4",
     "typed.js": "^2.0.6",
     "vue": "^2.3.3",
+    "vue-analytics": "^5.8.0",
     "vue-quill-editor": "^2.3.2",
     "vue-router": "^2.6.0",
     "vue-scrollactive": "^0.5.3",

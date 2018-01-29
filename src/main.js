@@ -5,6 +5,9 @@ import VueFire from 'vuefire';
 import App from './App';
 import router from './router';
 
+// Analytics
+import VueAnalytics from 'vue-analytics'
+
 // import external stylesheets
 import fontAwesome from '../node_modules/font-awesome/css/font-awesome.css';
 
@@ -18,6 +21,7 @@ Vue.use(VueQuillEditor);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  id: 'UA-50958826-3',
   router,
   template: '<App/>',
   components: { App }
