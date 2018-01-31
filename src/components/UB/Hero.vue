@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="hero">
     <div class="hero__inner">
-      <h1>
+      <h1 class="hero__text">
         <span class="" v-if="beforeLoad">Tillsammans bygger vi framtiden - i kod, i människa, i bolag.</span>
         <span class="type"></span>
       </h1>
@@ -59,8 +59,7 @@ export default {
         backSpeed: 10,
         backDelay: 1300,
         startDelay: 0,
-        smartBackspace: false,
-        loop: false
+        smartBackspace: false
       })
     }
   }

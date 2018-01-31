@@ -1,12 +1,13 @@
 .footer {
   background-color: $color-text-color;
   color: #fff;
+  padding-bottom: $spacing-md;
   .hello {
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
-    padding: $spacing-md 0;
+    padding: $spacing-md 0 0 0;
     .face {
       width: 150px;
       height: 150px;

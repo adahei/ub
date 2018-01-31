@@ -19,9 +19,6 @@
         <div class="data">
           <h2>Emanuel Fratini</h2>
           <span class="small">VD och Framtidsbyggare</span>
-          <p>
-            Jag har arbetat med affärsutveckling inom IT i <br/>10 år och varit kapten sedan barnsben.
-          </p>
           <a href="mailto:ef@utvecklarbolaget.se">ef@utvecklarbolaget.se</a><br/>
           <a href="tel:087032588">08-703 25 88</a>
           <div>
@@ -35,6 +32,7 @@
           </div>
         </div>
       </div>
+      <p class="text-center">Ett utvecklingsbolag för senior spetskompetens inom webbprogrammering.</p>
       <div class="social-buttons">
         <a href="https://www.facebook.com/utvecklarbolaget/" class="icon-social icon-facebook" target="_blank" aria-label="Facebook" rel="noopener">
           <svg enable-background="new 0 0 144.083 144" height="144px" version="1.1" viewBox="0 0 144.083 144" width="144.083px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -51,6 +49,7 @@
           </svg>
         </a>
       </div>
+      <p class="text-center"><em>Tillsammans bygger vi framtiden - i kod, i människa, i bolag</em></p>
     </footer>
   </div>
 </template>
