@@ -131,7 +131,7 @@ export default {
       params.append('name', this.name)
       params.append('email', this.email)
       params.append('message', this.message)
-      axios.post('https://heidmark.se/test/contact.php', params)
+      axios.post('http://utvecklarbolaget.se/contact2.php', params)
       .then(response => {
         this.sent = true
         console.log(response)

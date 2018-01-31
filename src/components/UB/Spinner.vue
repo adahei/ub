@@ -255,7 +255,7 @@ export default {
       params.append('salary', Math.round(this.salary))
 
       // axios.post(window.location.protocol + '//utvecklarbolaget.se/calculator.php', form)
-      axios.post('https://heidmark.se/test/calculator.php', params)
+      axios.post('http://utvecklarbolaget.se/calculator2.php', params)
       .then(response => {
         console.log(response)
         this.sendSuccess = true
