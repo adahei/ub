@@ -3,7 +3,7 @@
   "short_name": "Utvecklarbolaget",
   "lang": "sv",
   "start_url": ".",
-  "display": "browser",
+  "display": "fullscreen",
   "theme_color": "#FF6426",
   "background_color": "#FF6426",
   "orientation": "portrait-primary",

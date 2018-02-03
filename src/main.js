@@ -8,6 +8,10 @@ import router from './router';
 // Analytics
 import VueAnalytics from 'vue-analytics'
 
+Vue.use(VueAnalytics, {
+  id: 'UA-50958826-3'
+})
+
 // import external stylesheets
 import fontAwesome from '../node_modules/font-awesome/css/font-awesome.css';
 
@@ -21,7 +25,6 @@ Vue.use(VueQuillEditor);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  id: 'UA-50958826-3',
   router,
   template: '<App/>',
   components: { App }
