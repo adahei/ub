@@ -8,10 +8,6 @@ import router from './router';
 // Analytics
 import VueAnalytics from 'vue-analytics'
 
-Vue.use(VueAnalytics, {
-  id: 'UA-50958826-3'
-})
-
 // import external stylesheets
 import fontAwesome from '../node_modules/font-awesome/css/font-awesome.css';
 
@@ -20,6 +16,10 @@ import VueQuillEditor from 'vue-quill-editor';
 
 Vue.config.productionTip = false;
 
+Vue.use(VueAnalytics, {
+  id: 'UA-50958826-3',
+  router
+})
 Vue.use(VueFire);
 Vue.use(VueQuillEditor);
 /* eslint-disable no-new */
