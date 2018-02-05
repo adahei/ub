@@ -31,7 +31,7 @@
                 exit;
             }
 
-            $recipient = "adam@heidmark.se";
+            $recipient = "ef@utvecklarbolaget.se";
             $subject = "New calculation for $email";
 
             $email_content = "Phone: $phone\n";

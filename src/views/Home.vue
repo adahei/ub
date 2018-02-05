@@ -18,18 +18,11 @@
         <img class="face" width="150" height="150" src="/static/img/emanuel.jpg" alt="Emanuel Fratini">
         <div class="data">
           <h2>Emanuel Fratini</h2>
-          <span class="small">VD och Framtidsbyggare</span>
-          <a href="mailto:ef@utvecklarbolaget.se">ef@utvecklarbolaget.se</a><br/>
-          <a href="tel:087032588">08-703 25 88</a>
-          <div>
-            <address>
-              <a href="https://www.google.com/maps/place/Torsgatan+8A,+111+23+Stockholm/@59.3356769,18.0495805,17z" target="_blank" rel="noopener">
-                <span>Torsgatan 8A</span>
-                <span>111 23</span>,
-                <span>Stockholm</span>
-              </a>
-            </address>
-          </div>
+          <p>
+            <span class="small">VD och Framtidsbyggare</span><br/>
+            <a href="mailto:ef@utvecklarbolaget.se">ef@utvecklarbolaget.se</a><br/>
+            <a href="tel:087032588">08-703 25 88</a>
+          </p>
         </div>
       </div>
       <p class="text-center">Ett utvecklingsbolag för senior spetskompetens inom webbprogrammering.</p>
@@ -49,7 +42,6 @@
           </svg>
         </a>
       </div>
-      <p class="text-center"><em>Tillsammans bygger vi framtiden - i kod, i människa, i bolag</em></p>
     </footer>
   </div>
 </template>

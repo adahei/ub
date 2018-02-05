@@ -15,9 +15,9 @@
     </section>
     <ub-spinner id="lonesnurra"/>
     <footer class="footer" role="contentinfo">
-      <div class="footer__contact">
+      <div class="footer__contact hello">
         <p>Ett utvecklingsbolag för senior spetskompetens inom webbprogrammering.</p>
-        <div>
+        <div class="data">
           <h3 class="nomargin">Kontakta oss</h3>
           <a href="mailto:info@utvecklarbolaget.se">info@utvecklarbolaget.se</a> <br/>
           <a href="tel:087032588">08-703 25 88</a>
@@ -25,7 +25,6 @@
       </div>
       <h3 class="nomargin text-center">Dela oss</h3>
       <share/>
-      <p class="text-center"><em>Tillsammans bygger vi framtiden - i kod, i människa, i bolag</em></p>
     </footer>
   </div>
 </template>
@@ -155,18 +154,19 @@ export default {
 #hem {
   padding-top: 80px;
 }
-.footer__contact {
-  text-align: center;
-  margin: 2rem 0;
-  a {
-    color: #fff;
-    &:hover, &:focus {
-      text-decoration: underline;
-    }
-  }
-}
 .footer {
   padding: 1rem 0;
+  .footer__contact {
+    text-align: center;
+    margin: 0 0 1rem 0;
+    padding: 0;
+    a {
+      color: #fff;
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
   .section-loader {
     height: 100vh;
   }
