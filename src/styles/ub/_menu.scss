@@ -221,5 +221,8 @@
   }
 }
 body.nav--open {
-  overflow: hidden;
+  @media (min-width: $screen-sm) {
+    height: 100vh;
+    overflow: auto;
+  }
 }
