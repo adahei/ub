@@ -28,7 +28,7 @@
       <button type="button" class="hamburger" @click="toggleNav" aria-controls="navigation" :aria-expanded="open ? 'true' : 'false'" aria-label="Meny">
         <i class="fa fa-bars"></i>
       </button>
-      <div id="navigation" class="navigation" :class="{'open': open}">
+      <div id="navigation" class="navigation" :class="{'open': open}" :style="{height: this.calcHeight + 'px'}">
         <ul>
           <li v-for="item in nav"><a class="navigation__item scroll-item" @click="open = false" :href="'#' + friendlyURL(item.title)">{{item.title}}</a></li>
           <li v-if="hasSpinner" class="hidden"><a class="custom-lonenurra scroll-item" href="#lonesnurra"></a></li>
@@ -109,6 +109,7 @@ export default {
   },
   data () {
     return {
+      calcHeight: null,
       loading: true,
       open: false,
       contactOpen: false,
@@ -166,9 +167,11 @@ export default {
     },
     open: function () {
       if (this.open) {
-        document.body.classList.add('nav--open')
+        // document.body.classList.add('nav--open')
+        // console.log(this.$root.$el.offsetHeight)
+        this.calcHeight = this.$root.$el.offsetHeight - 56
       } else {
-        document.body.classList.remove('nav--open')
+        // document.body.classList.remove('nav--open')
       }
     }
   }
