@@ -1,4 +1,7 @@
 .header {
+  @media (max-width: $screen-sm) {
+    position: absolute;
+  }
   position: fixed;
   top: 0;
   left: 0;
@@ -218,11 +221,5 @@
         }
       }
     }
-  }
-}
-body.nav--open {
-  @media (min-width: $screen-sm) {
-    height: 100vh;
-    overflow: auto;
   }
 }

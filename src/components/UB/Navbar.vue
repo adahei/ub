@@ -30,7 +30,7 @@
       </button>
       <div id="navigation" class="navigation" :class="{'open': open}">
         <ul>
-          <li v-for="item in nav"><a class="navigation__item scroll-item" :href="'#' + friendlyURL(item.title)">{{item.title}}</a></li>
+          <li v-for="item in nav"><a class="navigation__item scroll-item" @click="open = false" :href="'#' + friendlyURL(item.title)">{{item.title}}</a></li>
           <li v-if="hasSpinner" class="hidden"><a class="custom-lonenurra scroll-item" href="#lonesnurra"></a></li>
         </ul>
         <ul class="nav-contact-item">
