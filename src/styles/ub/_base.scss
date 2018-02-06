@@ -3,11 +3,8 @@
   color: #fff;
   padding-bottom: $spacing-md;
   .hello {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
     padding: $spacing-md 0 0 0;
+    text-align: center;
     .face {
       width: 150px;
       height: 150px;
@@ -15,7 +12,6 @@
       border: 2px solid #fff;
     }
     .data {
-      flex: 1;
       padding: $spacing-sm;
       font-size: 80%;
       h2 {

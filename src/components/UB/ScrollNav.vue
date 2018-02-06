@@ -38,7 +38,6 @@ export default {
     if (this.currentItem) {
       this.currentItem.classList.add('active')
     }
-
     window.addEventListener('scroll', this.onScroll)
   },
   updated () {
@@ -56,7 +55,7 @@ export default {
   methods: {
     initScrollItems () {
       this.items = this.$el.querySelectorAll('.scroll-item')
-      this.items.forEach((item) => {
+      Array.prototype.forEach.call(this.items, (item) => {
         item.addEventListener('click', this.handleClick)
       })
     },
@@ -72,7 +71,7 @@ export default {
     },
     getItemInsideWindow () {
       let currentItem
-      this.items.forEach((item) => {
+      Array.prototype.forEach.call(this.items, (item) => {
         const target = document.getElementById(item.hash.substr(1))
         if (window.pageYOffset >= this.getOffsetTop(target) - this.offset) {
           currentItem = item
@@ -81,6 +80,7 @@ export default {
       return currentItem
     },
     handleClick (event) {
+      console.log('Click')
       event.preventDefault()
       const { hash } = event.currentTarget
       const target = document.getElementById(hash.substr(1))
@@ -137,7 +137,7 @@ export default {
       return yPosition
     },
     removeActiveClass () {
-      this.items.forEach((item) => {
+      Array.prototype.forEach.call(this.items, (item) => {
         item.classList.remove('active')
       })
     }

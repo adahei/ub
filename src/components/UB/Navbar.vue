@@ -35,7 +35,7 @@
         </ul>
         <ul class="nav-contact-item">
           <li>
-            <li><a href="#" class="navigation__item" @click.prevent="contactOpen = !contactOpen" :class="{'active': contactOpen}">Kontakt</a></li>
+            <li><a href="#" class="navigation__item" @click.prevent="handleContact" :class="{'active': contactOpen}">Kontakt</a></li>
           </li>
         </ul>
         <div class="navigation__contact" :class="{'contactOpen': contactOpen}">
@@ -122,6 +122,10 @@ export default {
   methods: {
     navigate (to) {
       this.$emit('navigate', to)
+    },
+    handleContact (e) {
+      e.preventDefault()
+      this.contactOpen = !this.contactOpen
     },
     submit () {
       this.sent = false
