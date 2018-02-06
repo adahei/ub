@@ -163,6 +163,13 @@ export default {
     showContact: function () {
       this.open = this.showContact
       this.contactOpen = this.showContact
+    },
+    open: function () {
+      if (this.open) {
+        document.body.classList.add('nav--open')
+      } else {
+        document.body.classList.remove('nav--open')
+      }
     }
   }
 }
