@@ -107,7 +107,7 @@ export default {
       window.scrollTo(0, top)
     },
     handleContact () {
-      this.$refs.nav.open = !this.$refs.nav.open
+      // this.$refs.nav.open = !this.$refs.nav.open
       this.$refs.nav.contactOpen = !this.$refs.nav.contactOpen
     },
     scroll: _.debounce(function () {
