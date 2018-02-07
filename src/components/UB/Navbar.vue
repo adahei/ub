@@ -40,7 +40,7 @@
         </div>
       </div>
     </scroll-nav>
-    <aside class="navigation__contact" :class="{'contactOpen': contactOpen}">
+    <aside class="navigation__contact" :class="{'contactOpen': contactOpen}" :style="{top: contactPost + 'px'}">
       <header class="navigation__contact__header">
         <h2>Kontakt</h2>
         <button type="button" @click="contactOpen = false"><i class="fa fa-close"></i></button>
@@ -113,6 +113,7 @@ export default {
   data () {
     return {
       calcHeight: null,
+      contactPost: 0,
       loading: true,
       open: false,
       contactOpen: false,
@@ -167,6 +168,7 @@ export default {
     contactOpen: function () {
       if (this.contactOpen) {
         document.body.classList.add('contact--open')
+        this.contactPost = window.scrollY + 27
         document.ontouchmove = function (e) {
           e.preventDefault()
         }
@@ -174,6 +176,7 @@ export default {
         // console.log(this.$root.$el.offsetHeight)
         // this.calcHeight = this.$root.$el.offsetHeight - 56
       } else {
+        this.contactPost = 0
         document.ontouchmove = function (e) {
           return true
         }

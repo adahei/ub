@@ -1,81 +1,68 @@
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 56px;
-  transition: background .3s ease-in-out;
-  background-color: rgba(250,250,250,1);
-  z-index: 10;
-  &.scrolledPast {
-    background-color: rgba(250,250,250,.9);
-    .header__inner {
-      width: 100%;
-    }
-  }
-  @media (min-width: $screen-sm) {
-    height: auto;
-  }
+  position: relative;
+  height: $nav-height;
   &__inner {
+    position:: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $nav-height;
+    transition: all .6s ease-in-out;
+    background-color: rgba(250,250,250,1);
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 .8rem;
-    transition: width .6s ease-in-out;
-    @media (min-width: $screen-sm) {
-      width: 768px;
-      max-width: 90%;
+    .logo {
+      display: block;
+      width: 200px;
+      margin-bottom: 6px;
+      svg {
+        display: block;
+        width: 160px;
+        height: $nav-height;
+        // in order to align the U
+        .lt-u {
+          transform: translateY(15px);
+          transition: all .3s ease-in-out;
+        }
+        // Hide other letters
+        .txt {
+          transition: all .3s ease-in-out;
+          opacity: 0;
+        }
+      }
+      @media (min-width: $screen-sm) {
+        width: 190px;
+        svg {
+          width: 100%;
+          height: ($nav-height-lg - 10);
+          .lt-u {
+            transform: translateY(0);
+          }
+          .txt {
+            fill: #000;
+            opacity: 1;
+          }
+        }
+      }
     }
   }
   &.job {
     .header__inner {
       @media (min-width: $screen-sm) {
-        // width: 768px;
         width: auto;
         max-width: 90%;
       }
     }
   }
-  .logo {
-    display: block;
-    width: 200px;
-    margin-bottom: 6px;
-    svg {
-      display: block;
-      width: 160px;
-      height: $nav-height;
-      transition: all .3s ease-in-out;
-
-      // in order to align the U
-      .lt-u {
-        transform: translateY(15px);
-        transition: all .3s ease-in-out;
-      }
-
-      // Hide other letters
-      .txt {
-        transition: all .3s ease-in-out;
-        opacity: 0;
-      }
-    }
-
-    @media (min-width: $screen-sm) {
-      width: 190px;
-      svg {
-        width: 100%;
-        height: ($nav-height-lg - 10);
-        .lt-u {
-          transform: translateY(0);
-        }
-        .txt {
-          fill: #000;
-          opacity: 1;
-        }
-      }
+  &.scrolledPast {
+    .header__inner {
+      background-color: rgba(250,250,250,.9);
+      width: 100%;
     }
   }
+
   .hamburger {
     display: block;
     @media (min-width: $screen-sm) {
@@ -84,7 +71,7 @@
   }
   .navigation {
     position: fixed;
-    top: 56px;
+    top: $nav-height;
     left: 0;
     background-color: rgba(250,250,250,.9);
     width: 100%;
@@ -185,24 +172,25 @@
       }
     }
   }
+
   .navigation__contact {
     display: block;
     margin-top: $spacing-md;
     border-top: 0;
     opacity: 0;
-    position: fixed;
-    top: 31px;
+    position: absolute;
+    top: 26px;
     right: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
     transform: translateX(120%);
     background-color: rgba(250,250,250,.9);
-    transition: all .2s ease-in-out;
+    transition: transform .2s ease-in-out;
     padding: $spacing-md;
     text-align: left;
     box-shadow: 0 4px 10px rgba(0,0,0,.1);
     z-index: 10;
-    @media (min-width: $screen-md) {
+    @media (min-width: $screen-sm) {
       width: 390px;
     }
     &.contactOpen {
