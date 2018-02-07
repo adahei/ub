@@ -29,12 +29,12 @@
         </button>
         <div id="navigation" class="navigation" :class="{'open': open}" :style="{height: this.calcHeight + 'px'}">
           <ul>
-            <li v-for="item in nav"><a class="navigation__item scroll-item" :href="'#' + friendlyURL(item.title)">{{item.title}}</a></li>
+            <li v-for="item in nav"><a class="navigation__item scroll-item" @click="open = false" :href="'#' + friendlyURL(item.title)">{{item.title}}</a></li>
             <li v-if="hasSpinner" class="hidden"><a class="custom-lonenurra scroll-item" href="#lonesnurra"></a></li>
           </ul>
           <ul class="nav-contact-item">
             <li>
-              <li><a href="#" class="navigation__item" @click.prevent="handleContact" :class="{'active': contactOpen}">Kontakt</a></li>
+              <li><a href="#" class="navigation__item" @click.prevent="handleContact" :class="{'active': contactOpen}"><i class="fa fa-envelope-o"></i> Kontakt</a></li>
             </li>
           </ul>
         </div>
@@ -150,6 +150,7 @@ export default {
     },
     toggleNav () {
       this.open = !this.open
+      this.contactOpen = false
       // this.contactOpen = !this.contactOpen
     }
   },
@@ -166,9 +167,17 @@ export default {
     contactOpen: function () {
       if (this.contactOpen) {
         document.body.classList.add('contact--open')
+        document.ontouchmove = function (e) {
+          e.preventDefault()
+        }
+        // document.body.addEventListener('touchmove', this.disableScroll(e))
         // console.log(this.$root.$el.offsetHeight)
         // this.calcHeight = this.$root.$el.offsetHeight - 56
       } else {
+        document.ontouchmove = function (e) {
+          return true
+        }
+        // document.body.removeEventListener('touchmove', this.disableScroll(e))
         document.body.classList.remove('contact--open')
       }
     }

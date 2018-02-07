@@ -1,31 +1,33 @@
 <template>
   <div class="app">
     <ub-navbar ref="nav" class="job" :nav="navigation" @navigate="val => { navigateTo(val) }" :hasSpinner="true" :class="{'scrolledPast': scrolledPastNav}" v-show="!loading"/>
-    <transition name="section-loader">
-      <div class="section-loader" v-if="loading"></div>
-    </transition>
-    <div id="hem"></div>
-    <section class="section" v-for="section in sortedSections" :id="friendlyURL(section.title)">
-      <h2 class="section-title" v-if="section.showTitle" :ref="section['.key']" >{{ section.title }}</h2>
-      <div class="section-img" v-if="section.img">
-        <img :src="section.img" :alt="section.title">
-      </div>
-      <div v-html="section.body"></div>
-      <ub-quote :body="section.quote.body" :source="section.quote.source" :compact="section.quote.compact" />
-    </section>
-    <ub-spinner id="lonesnurra"/>
-    <footer class="footer" role="contentinfo">
-      <div class="footer__contact hello">
-        <p>Ett utvecklingsbolag för senior spetskompetens inom webbprogrammering.</p>
-        <div class="data">
-          <h3 class="nomargin">Kontakta oss</h3>
-          <a href="mailto:info@utvecklarbolaget.se">info@utvecklarbolaget.se</a> <br/>
-          <a href="tel:087032588">08-703 25 88</a>
+    <div class="main">
+      <transition name="section-loader">
+        <div class="section-loader" v-if="loading"></div>
+      </transition>
+      <div id="hem"></div>
+      <section class="section" v-for="section in sortedSections" :id="friendlyURL(section.title)">
+        <h2 class="section-title" v-if="section.showTitle" :ref="section['.key']" >{{ section.title }}</h2>
+        <div class="section-img" v-if="section.img">
+          <img :src="section.img" :alt="section.title">
         </div>
-      </div>
-      <h3 class="nomargin text-center">Dela oss</h3>
-      <share/>
-    </footer>
+        <div v-html="section.body"></div>
+        <ub-quote :body="section.quote.body" :source="section.quote.source" :compact="section.quote.compact" />
+      </section>
+      <ub-spinner id="lonesnurra"/>
+      <footer class="footer" role="contentinfo">
+        <div class="footer__contact hello">
+          <p>Ett utvecklingsbolag för senior spetskompetens inom webbprogrammering.</p>
+          <div class="data">
+            <h3 class="nomargin">Kontakta oss</h3>
+            <a href="mailto:info@utvecklarbolaget.se">info@utvecklarbolaget.se</a> <br/>
+            <a href="tel:087032588">08-703 25 88</a>
+          </div>
+        </div>
+        <h3 class="nomargin text-center">Dela oss</h3>
+        <share/>
+      </footer>
+    </div>
   </div>
 </template>
 
