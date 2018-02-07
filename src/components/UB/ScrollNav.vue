@@ -46,6 +46,7 @@ export default {
     if (hash) {
       const target = document.getElementById(hash.substr(1))
       this.scrollTo(target)
+      history.pushState('', document.title, window.location.pathname + window.location.search)
     }
   },
   beforeDestroy () {
@@ -80,7 +81,6 @@ export default {
       return currentItem
     },
     handleClick (event) {
-      console.log('Click')
       event.preventDefault()
       const { hash } = event.currentTarget
       const target = document.getElementById(hash.substr(1))
