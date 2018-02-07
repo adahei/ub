@@ -143,20 +143,14 @@ export default {
       axios.post(window.location.protocol + '//utvecklarbolaget.se/contact2.php', params)
       .then(response => {
         this.sent = true
-        console.log(response)
       })
       .catch(e => {
         this.error = true
-        console.log('Error')
       })
     },
     toggleNav () {
       this.open = !this.open
       // this.contactOpen = !this.contactOpen
-    },
-    scrollToTop () {
-      console.log('SCOLL')
-      window.scrollTo(0,0)
     }
   },
   watch: {
@@ -169,13 +163,13 @@ export default {
       this.open = this.showContact
       this.contactOpen = this.showContact
     },
-    open: function () {
-      if (this.open) {
-        // document.body.classList.add('nav--open')
+    contactOpen: function () {
+      if (this.contactOpen) {
+        document.body.classList.add('contact--open')
         // console.log(this.$root.$el.offsetHeight)
         // this.calcHeight = this.$root.$el.offsetHeight - 56
       } else {
-        // document.body.classList.remove('nav--open')
+        document.body.classList.remove('contact--open')
       }
     }
   }

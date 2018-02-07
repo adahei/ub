@@ -171,20 +171,23 @@
   }
   .navigation__contact {
     display: block;
-    border-top: 2px solid #000;
     margin-top: $spacing-md;
     border-top: 0;
     opacity: 0;
     position: fixed;
     top: 31px;
     right: 0;
-    width: 390px;
+    width: 100%;
+    height: 100%;
     transform: translateX(120%);
     background-color: rgba(250,250,250,.9);
     transition: all .2s ease-in-out;
     padding: $spacing-md;
     text-align: left;
     box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    @media (min-width: $screen-md) {
+      width: 390px;
+    }
     &.contactOpen {
       display: block;
       opacity: 1;
@@ -221,4 +224,8 @@
       }
     }
   }
+}
+body.contact--open,
+body.contact--open .app {
+  overflow: hidden;
 }
