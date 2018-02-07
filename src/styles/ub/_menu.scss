@@ -7,6 +7,7 @@
     left: 0;
     width: 100%;
     height: $nav-height;
+    padding: 0 .8rem;
     transition: all .6s ease-in-out;
     background-color: rgba(250,250,250,1);
     z-index: 10;
@@ -176,10 +177,9 @@
   .navigation__contact {
     display: block;
     margin-top: $spacing-md;
-    border-top: 0;
     opacity: 0;
-    position: absolute;
-    top: 26px;
+    position: fixed;
+    top: $nav-height / 2;
     right: 0;
     width: 100%;
     height: auto;
@@ -230,8 +230,9 @@
     }
   }
 }
-body.contact--open,
-body.contact--open .app,
-body.contact--open .main {
-  overflow: hidden;
+body.contact--open {
+  position: fixed;
+  @media (min-width: $screen-sm) {
+    position: static;
+  }
 }

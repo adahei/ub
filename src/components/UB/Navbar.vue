@@ -1,7 +1,7 @@
 <template lang="html">
   <header class="header" role="banner">
     <scroll-nav class="header__inner" :offset="80">
-      <a href="#hem" class="logo scroll-item" aria-label="Utvecklarbolaget">
+      <a href="#hem" class="logo scroll-item" aria-label="Utvecklarbolaget" @click="clickNavigation">
         <svg xmlns="http://www.w3.org/2000/svg" width="634" height="125" viewBox="0 0 634 125" version="1.1">
           <g stroke="none" stroke-width="1" fill="black" fill-rule="evenodd">
             <path class="txt lt-1" d="M79.8 95.2L80.9 101.8C78.8 102.2 76.9 102.4 75.2 102.4 72.5 102.4 70.5 102 69 101.1 67.5 100.3 66.5 99.2 65.8 97.8 65.2 96.4 64.9 93.4 64.9 89L64.9 63.8 59.5 63.8 59.5 58 64.9 58 64.9 47.2 72.3 42.7 72.3 58 79.8 58 79.8 63.8 72.3 63.8 72.3 89.4C72.3 91.5 72.4 92.9 72.7 93.5 73 94.1 73.4 94.6 74 94.9 74.6 95.3 75.4 95.5 76.5 95.5 77.3 95.5 78.4 95.4 79.8 95.2L79.8 95.2Z"/>
@@ -27,9 +27,9 @@
         <button type="button" class="hamburger" @click.prevent="toggleNav" aria-controls="navigation" :aria-expanded="open ? 'true' : 'false'" aria-label="Meny">
           <i class="fa fa-bars"></i>
         </button>
-        <div id="navigation" class="navigation" :class="{'open': open}" :style="{height: this.calcHeight + 'px'}">
+        <div id="navigation" class="navigation" :class="{'open': open}">
           <ul>
-            <li v-for="item in nav"><a class="navigation__item scroll-item" @click="open = false" :href="'#' + friendlyURL(item.title)">{{item.title}}</a></li>
+            <li v-for="item in nav"><a class="navigation__item scroll-item" @click="clickNavigation" :href="'#' + friendlyURL(item.title)">{{item.title}}</a></li>
             <li v-if="hasSpinner" class="hidden"><a class="custom-lonenurra scroll-item" href="#lonesnurra"></a></li>
           </ul>
           <ul class="nav-contact-item">
@@ -40,7 +40,7 @@
         </div>
       </div>
     </scroll-nav>
-    <aside class="navigation__contact" :class="{'contactOpen': contactOpen}" :style="{top: contactPost + 'px'}">
+    <aside class="navigation__contact" :class="{'contactOpen': contactOpen}">
       <header class="navigation__contact__header">
         <h2>Kontakt</h2>
         <button type="button" @click="contactOpen = false"><i class="fa fa-close"></i></button>
@@ -112,8 +112,6 @@ export default {
   },
   data () {
     return {
-      calcHeight: null,
-      contactPost: 0,
       loading: true,
       open: false,
       contactOpen: false,
@@ -127,6 +125,10 @@ export default {
   methods: {
     navigate (to) {
       this.$emit('navigate', to)
+    },
+    clickNavigation () {
+      this.open = false
+      this.contactOpen = false
     },
     handleContact (e) {
       e.preventDefault()
@@ -168,19 +170,15 @@ export default {
     contactOpen: function () {
       if (this.contactOpen) {
         document.body.classList.add('contact--open')
-        this.contactPost = window.scrollY + 27
-        document.ontouchmove = function (e) {
-          e.preventDefault()
-        }
-        // document.body.addEventListener('touchmove', this.disableScroll(e))
-        // console.log(this.$root.$el.offsetHeight)
-        // this.calcHeight = this.$root.$el.offsetHeight - 56
+        console.log(document.body.clientHeight)
+        // document.ontouchmove = function (e) {
+        //   e.preventDefault()
+        // }
       } else {
         this.contactPost = 0
-        document.ontouchmove = function (e) {
-          return true
-        }
-        // document.body.removeEventListener('touchmove', this.disableScroll(e))
+        // document.ontouchmove = function (e) {
+        //   return true
+        // }
         document.body.classList.remove('contact--open')
       }
     }
